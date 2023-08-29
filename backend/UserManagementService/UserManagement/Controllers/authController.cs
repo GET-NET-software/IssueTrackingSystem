@@ -36,15 +36,13 @@ namespace UserManagement.Controllers
 			_dbContext.Users.Add(user);
 			await _dbContext.SaveChangesAsync();
 
+			// log in after sign up
+			HttpContext.Session.SetString("UserName", user.FullName);
+
 			return Ok(user);
 		}
 
 		// Login
-
-		// [HttpGet]
-		// [Route("Login")]
-
-
 		[HttpPost]
 		[Route("Login")]
 		public async Task<ActionResult<User>> Login(LoginDTO login)
@@ -53,8 +51,9 @@ namespace UserManagement.Controllers
 
 			if (PasswordHasher.VerifyPassword(login.Password, user.Password, user.PasswordSalt))
 			{
+				HttpContext.Session.SetString("UserName", user.FullName);
 				// Successful login
-				return Ok("Login successful");
+				return Ok("Hello " + user.FullName);
 			}
 			else
 			{
@@ -63,7 +62,30 @@ namespace UserManagement.Controllers
 
 		}
 
+		// Log out
+		[HttpPost("logout")]
+		public IActionResult Logout()
+		{
+			HttpContext.Session.Remove("UserName");
 
+			return Ok(new { message = "Logout successful" });
+		}
 
+		// check current user
+		[HttpGet("CheckUser")]
+		public IActionResult CheckUser()
+		{
+			var userName = HttpContext.Session.GetString("UserName");
+
+			if (!string.IsNullOrEmpty(userName))
+			{
+				return Ok("Current user " + userName);
+			}
+			else
+			{
+				return Unauthorized("No Logged in user");
+			}
+		}
 	}
+
 }

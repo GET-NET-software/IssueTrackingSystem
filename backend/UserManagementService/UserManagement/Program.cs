@@ -13,8 +13,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+// for session handling
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();	// option can be setted up to destroy the session
 var app = builder.Build();
+app.UseSession();	// session middleware
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
