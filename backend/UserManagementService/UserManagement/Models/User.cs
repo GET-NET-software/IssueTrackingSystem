@@ -4,7 +4,7 @@ namespace UserManagement.Models
 {
     public class User
     {
-        public int ID { get; set; }
+		public int ID { get; set; }
 
         public string? FullName { get; set; }
 
@@ -17,5 +17,6 @@ namespace UserManagement.Models
         public string? Password { get; set;}
 
         public string? CompanyName { get; set; }
-    }
+		public string? PasswordSalt { get; set; }
+	}
 }
