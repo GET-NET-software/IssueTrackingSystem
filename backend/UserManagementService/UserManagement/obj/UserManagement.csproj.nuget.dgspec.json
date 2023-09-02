@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
+    "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {
+    "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "projectUniqueName": "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
         "projectName": "UserManagement",
-        "projectPath": "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "projectPath": "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
         "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\UserManagementService\\UserManagement\\obj\\",
+        "outputPath": "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",

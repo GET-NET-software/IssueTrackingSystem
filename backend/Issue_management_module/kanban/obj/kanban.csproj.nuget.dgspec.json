@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\Issue_management_module\\kanban\\kanban.csproj": {}
+    "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\Issue_management_module\\kanban\\kanban.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\Issue_management_module\\kanban\\kanban.csproj": {
+    "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\Issue_management_module\\kanban\\kanban.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\Issue_management_module\\kanban\\kanban.csproj",
+        "projectUniqueName": "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\Issue_management_module\\kanban\\kanban.csproj",
         "projectName": "kanban",
-        "projectPath": "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\Issue_management_module\\kanban\\kanban.csproj",
+        "projectPath": "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\Issue_management_module\\kanban\\kanban.csproj",
         "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\Issue_management_module\\kanban\\obj\\",
+        "outputPath": "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\Issue_management_module\\kanban\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,6 +55,22 @@
               "version": "[7.0.5, )"
             },
             "RabbitMQ.client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle": {
+              "target": "Package",
+              "version": "[5.6.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[6.5.0, )"
             }

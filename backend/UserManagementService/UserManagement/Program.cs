@@ -19,7 +19,7 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();  // option can be setted up to destroy the session
 // Addind dependency registration for RabbitMQ
 builder.Services.AddSingleton<RabbitMQConnectionFactory>();
-
+builder.Services.AddTransient<SendSessionClass>();	//for using sendsession function in authController
 var app = builder.Build();
 app.UseSession();	// session middleware
 

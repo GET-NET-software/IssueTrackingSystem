@@ -309,3 +309,5 @@ C:\Users\Wubishet\3D Objects\main\backend\UserManagementService\UserManagement\o
 C:\Users\Wubishet\3D Objects\main\backend\UserManagementService\UserManagement\obj\Debug\net6.0\ref\UserManagement.dll
 C:\Users\Wubishet\3D Objects\main\backend\UserManagementService\UserManagement\bin\Debug\net6.0\RabbitMQ.Client.dll
 C:\Users\Wubishet\3D Objects\main\backend\UserManagementService\UserManagement\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\Wubishet\Documents\GitHub\IssueTrackingSystem\backend\UserManagementService\UserManagement\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\Wubishet\Documents\GitHub\IssueTrackingSystem\backend\UserManagementService\UserManagement\bin\Debug\net6.0\System.Threading.Channels.dll

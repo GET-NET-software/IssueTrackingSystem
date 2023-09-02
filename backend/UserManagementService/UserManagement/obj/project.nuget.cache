@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OYHw+bAXjJXfrF7YH49wfBS9QYrV10vSratnsycJoGWrBxRFx2XZ5HqGB2TXYsx/jwEL7iwBIAFablrL62fNiA==",
+  "dgSpecHash": "lVixN6C3tzG6saKxugUblb+uv6q67hv0GifD8LzRQyrZPDH9/B9TciibYrHl+XrFgssaICVwswarGBDAGRyqkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Wubishet\\3D Objects\\main\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+  "projectFilePath": "C:\\Users\\Wubishet\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wubishet\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Wubishet\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
