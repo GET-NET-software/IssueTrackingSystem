@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
 //using Swashbuckle.Application;
 using Kanban.Models;
+using Kanban.RabbitMQ;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,10 @@ builder.Services.AddDbContext<DashboardContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
+
+// Addind dependency registration for RabbitMQ
+builder.Services.AddSingleton<RabbitMQConnectionFactory>();
 
 var app = builder.Build();
 
