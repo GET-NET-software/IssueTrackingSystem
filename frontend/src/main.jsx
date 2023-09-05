@@ -7,6 +7,8 @@ import Signup from './pages/SignupPage.jsx'
 import Contact from './pages/ContactPage.jsx'
 import Issue from './pages/IssuePage.jsx'
 import Admin from './pages/AdminPage.jsx'
+import History from './pages/HistoryPage.jsx' 
+import Client from './pages/ClientHome.jsx'
 // import Profile from './pages/ProfilePage.jsx'
 
 import {
@@ -42,6 +44,16 @@ const router = createBrowserRouter([
 {
   path: "/admin",
   element: <Admin/>,
+},
+
+{
+  path: "/history",
+  element: <History/>,
+},
+
+{
+  path: "/client",
+  element: <Client/>,
 },
 
 // {
