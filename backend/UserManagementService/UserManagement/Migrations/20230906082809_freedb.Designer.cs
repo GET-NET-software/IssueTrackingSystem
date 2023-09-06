@@ -10,8 +10,8 @@ using UserManagement.Models;
 namespace UserManagement.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20230808185451_Initial")]
-    partial class Initial
+    [Migration("20230906082809_freedb")]
+    partial class freedb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,7 @@ namespace UserManagement.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FullName")

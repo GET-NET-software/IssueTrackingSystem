@@ -6,7 +6,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace UserManagement.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class freedb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +22,7 @@ namespace UserManagement.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     FullName = table.Column<string>(type: "longtext", nullable: true),
                     status = table.Column<string>(type: "longtext", nullable: true),
-                    Email = table.Column<string>(type: "longtext", nullable: true),
+                    Email = table.Column<string>(type: "longtext", nullable: false),
                     Password = table.Column<string>(type: "longtext", nullable: true),
                     CompanyName = table.Column<string>(type: "longtext", nullable: true)
                 },

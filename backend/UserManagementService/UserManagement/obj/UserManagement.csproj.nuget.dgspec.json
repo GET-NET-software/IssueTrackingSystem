@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
+    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {
+    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "projectUniqueName": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
         "projectName": "UserManagement",
-        "projectPath": "C:\\Users\\Hp\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\Desktop\\backend\\UserManagementService\\UserManagement\\obj\\",
+        "outputPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
