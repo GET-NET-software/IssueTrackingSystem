@@ -1,17 +1,39 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+// import {link} from "react-router-dom";
 
-export default function NavBar() {
+ function NavBar() {
+	const navigate = useNavigate();
+
+  const toHistory = () => {
+    navigate('/history',{ replace:true})
+  }
+  
+  const toProfile = () => {
+    navigate('/Profile',{ replace:true})
+  }
+  
+  const toHome = () => {
+    navigate('/',{ replace:true})
+  }
+  
 	return (
+		<>
+		
 		<div className="header">
-			<nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-red-500 mb-3 rounded-lg">
+			<nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-slate-800 mb-3 rounded-lg">
 				<div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
 					<div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
-						<a
+						{/* <a
 							className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white"
 							href="#pablo"
 						>
-							red Color
-						</a>
+							Getnet soft
+						</a> */}
+							<img
+    							src="src/images/logo.png"
+    							class="h-auto max-w-xs rounded-full"
+    								alt="logo" />
 						<button
 							className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
 							type="button"
@@ -24,33 +46,45 @@ export default function NavBar() {
 					<div className="lg:flex flex-grow items-center">
 						<ul className="flex flex-col lg:flex-row list-none ml-auto">
 							<li className="nav-item">
-								<a
+							<div  onClick={toHome} className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+								Home
+							</div>
+								{/* <a
 									className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-									href="#pablo"
+									href=""
 								>
-									Discover
-								</a>
+									home
+								</a> */}
 							</li>
+
 							<li className="nav-item">
-								<a
+							<div  onClick={toHistory} className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+								Issue
+							</div>
+								{/* <a
 									className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
 									href="#pablo"
 								>
 									Profile
-								</a>
+								</a> */}
 							</li>
 							<li className="nav-item">
-								<a
+							<div  onClick={toProfile} className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+								Profile
+							</div>
+								{/* <a
 									className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
 									href="#pablo"
 								>
 									Setting
-								</a>
+								</a> */}
 							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</div>
+		</>
 	);
 }
+export default NavBar;
