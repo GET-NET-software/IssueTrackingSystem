@@ -5,20 +5,21 @@ namespace Kanban.Models
 {
     public class DashboardContext : DbContext
     {
-        public DbSet<Card> Cards { get; set; }
-        public DbSet<State> States { get; set; }
+       
         public DashboardContext(DbContextOptions options) : base(options)
-{
-    //Database.EnsureCreated();
-    if (States is null || States.ToList().Any()) // Add null check for States
-        return;
-    
-    States.Add(new State { Name = "ToDo" });
-    States.Add(new State { Name = "InProgress" });
-    States.Add(new State { Name = "Done" });
+        {
+            //Database.EnsureCreated();
+            //if (States.ToList().Any())
+            //    return;
 
-    SaveChanges();
-}
+            //States.Add(new State { Name = "ToDo" });
+            //States.Add(new State { Name = "InProgress" });
+            //States.Add(new State { Name = "Done" });
+
+            //SaveChanges();
+        }
+        public DbSet<Card> Cards { get; set; }
+        public DbSet<Status> Status { get; set; }
         /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

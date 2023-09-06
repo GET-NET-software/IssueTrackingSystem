@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+pVY88vY3c69NrvG+zCEdil9OpE/xPojakCy3frJLJQfKYol0xvR2knk5kXSaiyrzPtIkUmeMV+0FY+e8MVlLg==",
+  "dgSpecHash": "/H5FU/5MODItDWS76/ETqMGUfOPJbuUiaL+Pa0x+yGxPxzARcKi86vplBbQAvvbdDITBfV6SG2POx21GzI0wdw==",
   "success": true,
-  "projectFilePath": "A:\\Intern\\C#\\UserManagementService\\UserManagement\\UserManagement.csproj",
+  "projectFilePath": "C:\\Users\\Hp\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hp\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

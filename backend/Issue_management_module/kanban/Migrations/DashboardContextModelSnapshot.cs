@@ -16,7 +16,7 @@ namespace kanban.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.10")
+                .HasAnnotation("ProductVersion", "7.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Kanban.Models.Card", b =>
@@ -29,23 +29,18 @@ namespace kanban.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("StatePriority")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StatePriority");
-
                     b.ToTable("Cards");
                 });
 
-            modelBuilder.Entity("Kanban.Models.State", b =>
+            modelBuilder.Entity("Kanban.Models.Status", b =>
                 {
-                    b.Property<int>("Priority")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -53,20 +48,9 @@ namespace kanban.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("Priority");
+                    b.HasKey("ID");
 
-                    b.ToTable("States");
-                });
-
-            modelBuilder.Entity("Kanban.Models.Card", b =>
-                {
-                    b.HasOne("Kanban.Models.State", "State")
-                        .WithMany()
-                        .HasForeignKey("StatePriority")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("State");
+                    b.ToTable("Status");
                 });
 #pragma warning restore 612, 618
         }

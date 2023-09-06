@@ -8,15 +8,18 @@ namespace Kanban.Controllers
     [Route("api/[controller]")]
     public class DashboardController : ControllerBase // Inherit from ControllerBase instead of Controller
     {
-        private BusinessLogic businessLogic;
-      public  DashboardController() {
-        // Create a new instance of the BusinessLogic object
-        businessLogic = new BusinessLogic();
-    }
+        public BusinessLogic businessLogic; // Use readonly modifier
+        private readonly ILogger<DashboardController> logger;
+        private readonly DashboardContext context;
+        public DashboardController(BusinessLogic businessLogic, ILogger<DashboardController> logger, DashboardContext context)
+        {
+            this.businessLogic = businessLogic;
+            this.logger = logger;
+            this.context = context;
+        }
 
-       
 
-     //   GET: api/Dashboard
+        //   GET: api/Dashboard
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -26,18 +29,19 @@ namespace Kanban.Controllers
 
         // GET: api/Dashboard/5
         [HttpGet("{id}")]
-public IActionResult Get(Guid id)
-{
-    var card = businessLogic.GetCard(id); 
-    if (card == null)
-        return NotFound();
-    return Ok(card);
-}
+        public IActionResult Get(Guid id)
+        {
+            var card = businessLogic.GetCard(id);
+            if (card == null)
+                return NotFound();
+            return Ok(card);
+        }
+
         // POST: api/Dashboard
         [HttpPost]
         public IActionResult Post([FromBody] Card card)
         {
-            businessLogic = new BusinessLogic();
+
             businessLogic.AddCard(card);
             return CreatedAtAction(nameof(Get), new { id = card.Id }, card);
         }

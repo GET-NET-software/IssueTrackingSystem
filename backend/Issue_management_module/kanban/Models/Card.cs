@@ -7,11 +7,11 @@ namespace Kanban.Models
     {
         public Guid Id { get; set; }
         [Required]
-        public string? Title { get; set; }
-        public string? Description { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
 
-        [Required]
-        public int StatePriority { get; set; }
-        public virtual State? State { get; set; }
+        //[Required]
+       // public int StatePriority { get; set; }
+        //public virtual State State { get; set; }
     }
 }
