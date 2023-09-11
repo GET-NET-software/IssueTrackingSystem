@@ -1,32 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "A:\\Intern\\C#\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
+    "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
   },
   "projects": {
-    "A:\\Intern\\C#\\UserManagementService\\UserManagement\\UserManagement.csproj": {
+    "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Intern\\C#\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "projectUniqueName": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
         "projectName": "UserManagement",
-        "projectPath": "A:\\Intern\\C#\\UserManagementService\\UserManagement\\UserManagement.csproj",
-        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "A:\\Intern\\C#\\UserManagementService\\UserManagement\\obj\\",
+        "projectPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "packagesPath": "C:\\Users\\Esrael\\.nuget\\packages\\",
+        "outputPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Esrael\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -37,8 +35,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
@@ -98,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

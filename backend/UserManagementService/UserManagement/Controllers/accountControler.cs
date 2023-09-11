@@ -5,7 +5,7 @@ using UserManagement.Models;
 
 namespace UserManagement.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
     public class accountControler : ControllerBase
     {
@@ -17,6 +17,7 @@ namespace UserManagement.Controllers
             _dbContext = dbContext; 
         }
         [HttpGet]
+        [Route("user/{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
             if (_dbContext.Users == null)
