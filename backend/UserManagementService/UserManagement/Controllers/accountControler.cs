@@ -17,6 +17,7 @@ namespace UserManagement.Controllers
             _dbContext = dbContext; 
         }
         [HttpGet]
+		[Route("GetUser")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
             if (_dbContext.Users == null)
@@ -28,7 +29,8 @@ namespace UserManagement.Controllers
             {
                 return NotFound();
             }
-            return user;
+            // return user;
+            return Ok(user);
         }
 
         [HttpPost]

@@ -40,15 +40,21 @@ namespace UserManagement.Controllers
 				PasswordSalt = salt
 			};
 
-			_dbContext.Users.Add(user);
-			await _dbContext.SaveChangesAsync();
+			try
+			{
+				_dbContext.Users.Add(user);
+				await _dbContext.SaveChangesAsync();
+				// log in after sign up
+				HttpContext.Session.SetString("UserName", user.FullName);
+				// Send session info
+				_sendSession.SendSession(user.FullName);
+				return Ok(user);
+			}
+			catch (DbUpdateException e)
+			{
+				return Ok(new {message = "Username or Email is not available."} );
+			}
 
-			// log in after sign up
-			HttpContext.Session.SetString("UserName", user.FullName);
-			// Send session info
-			_sendSession.SendSession(user.FullName);
-
-			return Ok(user);
 		}
 
 		// Login
