@@ -25,7 +25,8 @@ namespace UserManagement.Controllers
 			//	_sendSession = sendSession;
 		}
 
-		[HttpPost("register")]
+		[HttpPost]
+		[Route("register")]
 		public async Task<ActionResult<User>> Register(User request)
 		{
 			var (hash, salt) = PasswordHasher.HashPassword(request.Password);
@@ -59,7 +60,7 @@ namespace UserManagement.Controllers
 
 		// Login
 		[HttpPost]
-		[Route("Login")]
+		[Route("login")]
 		public async Task<ActionResult<User>> Login(LoginDTO login)
 		{
 			var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.FullName == login.FullName);
@@ -81,7 +82,8 @@ namespace UserManagement.Controllers
 		}
 
 		// Log out
-		[HttpPost("logout")]
+		[HttpPost]
+		[Route("logout")]
 		public IActionResult Logout()
 		{
 			//HttpContext.Session.Remove("UserName");
@@ -91,19 +93,21 @@ namespace UserManagement.Controllers
 		}
 
 		// check current user
-		[HttpGet("CheckUser")]
+		[HttpGet]
+		[Route("checkUser")]
 		public IActionResult CheckUser()
 		{
-			var userName = HttpContext.Session.GetString("UserName");
+			return Ok(new {message = "ok"});
+			// var userName = HttpContext.Session.GetString("UserName");
 
-			if (!string.IsNullOrEmpty(userName))
-			{
-				return Ok("Current user " + userName);
-			}
-			else
-			{
-				return Unauthorized("No Logged in user");
-			}
+			// if (!string.IsNullOrEmpty(userName))
+			// {
+			// 	return Ok("Current user " + userName);
+			// }
+			// else
+			// {
+			// 	return Unauthorized("No Logged in user");
+			// }
 		}
 	}
 
