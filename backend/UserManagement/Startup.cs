@@ -63,13 +63,24 @@ namespace UserManagement
 			app.UseCors("AllowAll");
 			app.UseRouting();
 
-			// app.UseEndpoints(endpoints =>
-			// {
-			//     endpoints.MapGet("/", async context =>
-			//     {
-			//         await context.Response.WriteAsync("Hello World!");
-			//     });
-			// });
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllerRoute(
+				name: "Register",
+				pattern: "{controller=auth}/{action=Register}");
+
+				endpoints.MapControllerRoute(
+				name: "Login",
+				pattern: "{controller=auth}/{action=Login}");
+
+				endpoints.MapControllerRoute(
+				name: "Logout",
+				pattern: "{controller=auth}/{action=Logout}");
+
+				endpoints.MapControllerRoute(
+				name: "CheckUser",
+				pattern: "{controller=auth}/{action=CheckUser}");
+			});
 
 			await app.UseOcelot();
 		}
