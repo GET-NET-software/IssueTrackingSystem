@@ -59,8 +59,8 @@ public IActionResult Get(int id)
         }
 
         // DELETE: api/Dashboard/5
-        [HttpDelete("{id}")]
-         [Route("remove")]
+        [HttpDelete]
+         [Route("remove/{id}")]
         public IActionResult Delete(int id)
         {
             var card = businessLogic.DeleteCard(id);
@@ -68,6 +68,19 @@ public IActionResult Get(int id)
                 return NotFound();
             return Ok(card);
         }
-     }
+         [HttpPut("changestatus/{id}")]
+    public IActionResult ChangeStatus(int id)
+    {
+        var updatedCard = businessLogic.ChangeStatusCard(id);
+
+        if (updatedCard == null)
+        {
+            return NotFound(); // Return 404 Not Found if the card is not found
+        }
+
+        return Ok(updatedCard); // Return the updated card as the response
+    }
 }
+
+     }
 
