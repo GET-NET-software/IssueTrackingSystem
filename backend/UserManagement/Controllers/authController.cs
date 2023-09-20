@@ -36,7 +36,7 @@ namespace UserManagement.Controllers
 				FullName = request.FullName,
 				status = request.status,
 				Email = request.Email,
-				CompanyName = request.CompanyName,
+				companyId = request.companyId,
 				Password = hash,
 				PasswordSalt = salt
 			};

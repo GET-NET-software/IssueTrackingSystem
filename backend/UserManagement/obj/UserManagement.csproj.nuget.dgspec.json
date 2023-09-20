@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wubishet\\Downloads\\Telegram Desktop\\backend\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
+    "C:\\Users\\ngiza\\OneDrive\\Desktop\\GETNET\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wubishet\\Downloads\\Telegram Desktop\\backend\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {
+    "C:\\Users\\ngiza\\OneDrive\\Desktop\\GETNET\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wubishet\\Downloads\\Telegram Desktop\\backend\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "projectUniqueName": "C:\\Users\\ngiza\\OneDrive\\Desktop\\GETNET\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
         "projectName": "UserManagement",
-        "projectPath": "C:\\Users\\Wubishet\\Downloads\\Telegram Desktop\\backend\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
-        "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wubishet\\Downloads\\Telegram Desktop\\backend\\backend\\UserManagementService\\UserManagement\\obj\\",
+        "projectPath": "C:\\Users\\ngiza\\OneDrive\\Desktop\\GETNET\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
+        "packagesPath": "C:\\Users\\ngiza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ngiza\\OneDrive\\Desktop\\GETNET\\IssueTrackingSystem\\backend\\UserManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ngiza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,6 +57,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             },
             "MySql.Data": {
               "target": "Package",

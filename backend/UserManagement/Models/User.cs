@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserManagement.Models
 {
@@ -16,7 +17,11 @@ namespace UserManagement.Models
 
         public string? Password { get; set; }
 
-        public string? CompanyName { get; set; }
+        [Display(Name = "Company")]
+        public virtual int companyId { get; set; }
+
+        [ForeignKey("companyId")]
+        public virtual Company Companies { get; set; }
         public string? PasswordSalt { get; set; }
     }
 }
