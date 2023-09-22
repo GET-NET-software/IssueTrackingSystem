@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
 
 namespace issuemodule.Models
 {
     public class BusinessLogic
     {
-        
+  
         public virtual IEnumerable<Card> GetAllCards()
         {
             using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
@@ -15,7 +16,7 @@ namespace issuemodule.Models
         }
 
        
-       public virtual void AddCard(Card card)
+   public virtual void AddCard(Card card)
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
     {
@@ -31,10 +32,24 @@ namespace issuemodule.Models
             card.StatePriority = 1;
         }
 
+        // Save the file to a specific location
+        if (card.File != null && card.File.Length > 0)
+        {
+            string fileName = Guid.NewGuid().ToString(); // Generate a unique file name
+            string filePath = Path.Combine("uploads", fileName); 
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                card.File.CopyTo(stream);
+            }
+            card.FilePath = filePath; // Store the file path in the FilePath property
+        }
+
         context.Add(card);
         context.SaveChanges();
     }
 }
+
+
 
 
      
@@ -46,6 +61,15 @@ namespace issuemodule.Models
         return card;
     }
 }
+//retrieve card by user
+// public virtual Card GetCardForUser(int id, string userId)
+// {
+//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+//     {
+//         var card = context.Cards.FirstOrDefault(c => c.Id == id && c.UserId == userId);
+//         return card;
+//     }
+// }
 
 
         public virtual Card UpdateCard(Card uCard)
@@ -61,6 +85,7 @@ namespace issuemodule.Models
          card.Category = uCard.Category;
          card.File= uCard.File;
         card.StatePriority = uCard.StatePriority; // Update the statePriority property
+        card.assignee = uCard.assignee;
         context.SaveChanges();
 
         var updatedCard = context.Cards.FirstOrDefault(c => c.Id == uCard.Id);

@@ -12,10 +12,13 @@ namespace issuemodule.Models
         public string? Title { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
+        public string assignee  { get; set; }
+        public string productID  { get; set; }
         [NotMapped]
         [Display(Name = "File")]
           
         public IFormFile File { get; set; }
+         public string FilePath { get; set; } 
         public int StatePriority { get; set; }
        
     }

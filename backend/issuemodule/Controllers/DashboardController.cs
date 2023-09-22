@@ -36,6 +36,23 @@ public IActionResult Get(int id)
         return NotFound();
     return Ok(card);
 }
+//retrieve cards by user
+// [HttpGet("{id}")]
+// [Authorize]
+// public IActionResult Get(int id)
+// {
+//     // Get the current user's identifier (assuming it's stored in the subject claim)
+//     var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    
+//     // Retrieve cards for the specific user based on the user identifier
+//     var card = businessLogic.GetCardForUser(id, userId); // Modify this method based on your business logic
+    
+//     if (card == null)
+//         return NotFound();
+    
+//     return Ok(card);
+// }
+
         // POST: api/Dashboard
         [HttpPost]
         [Route("addissue")]
