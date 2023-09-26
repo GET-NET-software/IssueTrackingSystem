@@ -1,0 +1,169 @@
+{
+	"Routes": [
+		{
+			"DownstreamPathTemplate": "/api/Auth/register",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user/register",
+			"UpstreamHttpMethod": [
+				"POST"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Auth/login",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user/login",
+			"UpstreamHttpMethod": [
+				"POST"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Auth/logout",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user/logout",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Auth/checkUser",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user",
+			"UpstreamHttpMethod": [
+				"GET"
+			],
+			"FileCacheOptions": {
+				"TtlSeconds": 30
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Company/getCompanies",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user/register",
+			"UpstreamHttpMethod": [
+				"GET"
+			],
+			"FileCacheOptions": {
+				"TtlSeconds": 30
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Dashboard/{id}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/{id}",
+			"UpstreamHttpMethod": [
+				"GET"
+			],
+			"FileCacheOptions": {
+				"TtlSeconds": 30
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Dashboard/getallcards",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/getallcards",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Dashboard/addissue",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/addissue",
+			"UpstreamHttpMethod": [
+				"POST"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/[controller]/update/{id}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/update/{id}",
+			"UpstreamHttpMethod": [
+				"PUT"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/[controller]/remove/{id}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/remove/{id}",
+			"UpstreamHttpMethod": [
+				"DELETE"
+			]
+		}
+	],
+	"GlobalCorsPolicy": {
+		"CorsName": "AllowAll",
+		"AllowedOrigins": [
+			"*"
+		],
+		"AllowedHeaders": [
+			"*"
+		],
+		"AllowedMethods": [
+			"*"
+		],
+		"AllowCredentials": false
+	},
+	"GlobalConfiguration": {
+		"BaseUrl": "http://localhost:5010"
+	}
+}
