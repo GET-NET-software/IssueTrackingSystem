@@ -1,23 +1,11 @@
 {
   "Version": 1,
-  "Hash": "z8roCkacOyyc5UahkjrVsqbcWwk4/A2euicRtuhD8iQ=",
+  "Hash": "WAifTzEBzuWIG0JKQZ/6zq9KdC50Knl8r6dWfLCp9BA=",
   "Source": "issuemodule",
   "BasePath": "_content/issuemodule",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [
-    {
-      "Identity": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
-      "Version": 2,
-      "Source": "UserManagement",
-      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
-      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
-    }
-  ],
+  "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
   "Assets": []
 }

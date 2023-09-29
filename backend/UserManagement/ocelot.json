@@ -91,6 +91,10 @@
 			],
 			"FileCacheOptions": {
 				"TtlSeconds": 30
+			},
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
 			}
 		},
 		{
@@ -137,7 +141,11 @@
 			"UpstreamPathTemplate": "/dashboard/update/{id}",
 			"UpstreamHttpMethod": [
 				"PUT"
-			]
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
+			}
 		},
 		{
 			"DownstreamPathTemplate": "/api/[controller]/remove/{id}",
@@ -151,7 +159,11 @@
 			"UpstreamPathTemplate": "/dashboard/remove/{id}",
 			"UpstreamHttpMethod": [
 				"DELETE"
-			]
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
+			}
 		}
 	],
 	"GlobalCorsPolicy": {

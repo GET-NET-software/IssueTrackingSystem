@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj": {}
+    "C:\\Users\\Wubishet\\Desktop\\backend\\UserManagement\\UserManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj": {
+    "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
-        "projectName": "UserManagement",
-        "projectPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
+        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
+        "projectName": "JwtAuthenticationManager",
+        "projectPath": "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
         "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\obj\\",
+        "outputPath": "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,6 +28,87 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Wubishet\\Desktop\\backend\\UserManagement\\UserManagement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\backend\\UserManagement\\UserManagement.csproj",
+        "projectName": "UserManagement",
+        "projectPath": "C:\\Users\\Wubishet\\Desktop\\backend\\UserManagement\\UserManagement.csproj",
+        "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Wubishet\\Desktop\\backend\\UserManagement\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
+                "projectPath": "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -68,7 +149,7 @@
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -108,7 +189,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.1, )"
             }
           },
           "imports": [

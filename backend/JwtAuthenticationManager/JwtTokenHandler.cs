@@ -1,16 +1,15 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UserManagement.Models;
-using UserManagement.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
+using JwtAuthenticationManager.Models;
 
 namespace Use
 {
@@ -25,17 +24,17 @@ namespace Use
 		public JwtTokenHandler(UserContext dbContext)
 		{
 			_dbContext = dbContext;
-			
+
 		}
 
-	public async Task<ActionResult<AuthenticationResponse?>> GenerateJwtToken(LoginDTO authenticationRequest)
+		public async Task<ActionResult<AuthenticationResponse?>> GenerateJwtToken(LoginDTO authenticationRequest)
 		{
 			if (string.IsNullOrWhiteSpace(authenticationRequest.UserName) || string.IsNullOrWhiteSpace(authenticationRequest.Password))
 				return null;
 
 			// password validatio
-			
-				var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.UserName == authenticationRequest.UserName);
+
+			var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.UserName == authenticationRequest.UserName);
 			if (user == null)
 				return null;
 

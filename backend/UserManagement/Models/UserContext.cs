@@ -3,14 +3,11 @@ using MySql.Data.MySqlClient;
 
 namespace UserManagement.Models
 {
-    public class UserContext: DbContext
+    public class UserContext11: DbContext
     {
 
-        public UserContext(DbContextOptions<UserContext> options): base(options) 
-        {
-
-        }
-		// public UserContext() { }
+        public UserContext11(DbContextOptions<UserContext> options): base(options) 
+        {	}
 		public DbSet<User> Users { get; set; }
         public DbSet<Company> Company { get; set; }
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj": {}
+    "C:\\Users\\Wubishet\\Desktop\\backend\\issuemodule\\issuemodule.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj": {
+    "C:\\Users\\Wubishet\\Desktop\\backend\\issuemodule\\issuemodule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj",
+        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\backend\\issuemodule\\issuemodule.csproj",
         "projectName": "issuemodule",
-        "projectPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj",
+        "projectPath": "C:\\Users\\Wubishet\\Desktop\\backend\\issuemodule\\issuemodule.csproj",
         "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\obj\\",
+        "outputPath": "C:\\Users\\Wubishet\\Desktop\\backend\\issuemodule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj": {
-                "projectPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj"
+              "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
+                "projectPath": "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj"
               }
             }
           }
@@ -60,10 +60,6 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
-            "RabbitMQ.client": {
-              "target": "Package",
-              "version": "[6.5.0, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -92,14 +88,14 @@
         }
       }
     },
-    "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj": {
+    "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
-        "projectName": "UserManagement",
-        "projectPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
+        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
+        "projectName": "JwtAuthenticationManager",
+        "projectPath": "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
         "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\obj\\",
+        "outputPath": "C:\\Users\\Wubishet\\Desktop\\backend\\JwtAuthenticationManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -132,71 +128,21 @@
               "target": "Package",
               "version": "[7.0.11, )"
             },
-            "Microsoft.AspNetCore.Mvc.Core": {
-              "target": "Package",
-              "version": "[2.1.38, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.11, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.10, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.10, )"
-            },
-            "Microsoft.Extensions.DependencyInjection": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[7.0.0, )"
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
-              "version": "[7.0.0, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[7.0.9, )"
-            },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.1.0, )"
-            },
-            "MySql.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.5, )"
-            },
-            "NuGet.Frameworks": {
-              "target": "Package",
-              "version": "[6.6.1, )"
-            },
-            "Ocelot": {
-              "target": "Package",
-              "version": "[19.0.2, )"
-            },
-            "Ocelot.Cache.CacheManager": {
-              "target": "Package",
-              "version": "[19.0.2, )"
-            },
-            "RabbitMQ.client": {
-              "target": "Package",
-              "version": "[6.5.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.2.3, )"
-            },
-            "System.ComponentModel.Annotations": {
-              "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[7.0.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.1, )"
             }
           },
           "imports": [
@@ -211,9 +157,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

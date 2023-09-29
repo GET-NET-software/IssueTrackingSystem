@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using JwtAuthenticationManager.Models;
 
 namespace UserManagement.Models
 {

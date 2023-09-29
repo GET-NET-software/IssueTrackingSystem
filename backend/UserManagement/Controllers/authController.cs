@@ -1,14 +1,11 @@
-using System.Security.Cryptography;
-using System.Text;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using UserManagement.Models;
-using UserManagement.DTOs;
+// using UserManagement.Models;
+// using UserManagement.DTOs;
 using Use;
 using Microsoft.AspNetCore.Authorization;
 using UserManagement.RabbitMQ;
-using UserManagement.Models;
+using JwtAuthenticationManager.Models;
 using RabbitMQ.Client;
 using Newtonsoft.Json;
 
@@ -73,24 +70,9 @@ namespace UserManagement.Controllers
 			if (authenticationResponse == null)
 				return Unauthorized(new { message = "Invalid Username or Password"});
 
-			// rabbitMQ
-			// using var connection = _connectionFactory.CreateConnection();
-			// using var channel = connection.CreateModel();
-			// channel.QueueDeclare(
-			// 	queue: "JwtClaims",
-			// 	durable: false,
-			// 	exclusive: false,
-			// 	autoDelete: false,
-			// 	arguments: null);
-
-			// var message = JsonConvert.SerializeObject(authenticationResponse.Value);
-
-			// var encodedMessage = Encoding.UTF8.GetBytes(message);
-
-			// channel.BasicPublish("", "JwtClaims", null, encodedMessage);
-			// string token = authenticationResponse;
 			Response.Headers.Add("Authorization", $"Bearer {authenticationResponse}");
 
+			Console.WriteLine(authenticationResponse);
 			return authenticationResponse;
 		}
 

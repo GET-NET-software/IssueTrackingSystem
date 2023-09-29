@@ -1,0 +1,12 @@
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\bin\Debug\net7.0\JwtAuthenticationManager.deps.json
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\bin\Debug\net7.0\JwtAuthenticationManager.dll
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\bin\Debug\net7.0\JwtAuthenticationManager.pdb
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.csproj.AssemblyReference.cache
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.AssemblyInfoInputs.cache
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.AssemblyInfo.cs
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.csproj.CoreCompileInputs.cache
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.dll
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\refint\JwtAuthenticationManager.dll
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.pdb
+C:\Users\Wubishet\Desktop\backend\JwtAuthenticationManager\obj\Debug\net7.0\ref\JwtAuthenticationManager.dll

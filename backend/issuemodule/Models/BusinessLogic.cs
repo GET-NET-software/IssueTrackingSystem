@@ -1,39 +1,98 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
 
 namespace issuemodule.Models
 {
     public class BusinessLogic
     {
         
-        public virtual IEnumerable<Card> GetAllCards()
-        {
-            using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
-            {
-                var dashboardContext = context.Cards;
-                return dashboardContext.ToList();
-            }
-        }
 
-       
-       public virtual void AddCard(Card card)
+
+public virtual IEnumerable<CardDTO> GetAllCards()
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
     {
-        var state = context.States.FirstOrDefault(s => s.Name == "TODO");
+        var cardDTOs = from c in context.Cards
+                       join s in context.States on c.StatePriority equals s.Priority into stateGroup
+                       from state in stateGroup.DefaultIfEmpty()
+                       select new CardDTO
+                       {
+                           Id = c.Id,
+                           Title = c.Title,
+                           Description = c.Description,
+                           Category = c.Category,
+                           StatePriority = c.StatePriority,
+                           StateName = state != null ? state.Name : string.Empty
+                       };
+
+        return cardDTOs.ToList();
+    }
+}
+
+
+  
+//   public virtual IEnumerable<string> GetAllCardNamesByPriority()
+// {
+//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+//     {
+//        var cardNames = from c in context.Cards
+//                         join s in context.States on c.StatePriority equals s.Priority
+//                         select s.Name ?? string.Empty; // Handle null values by using a default value
+//         return cardNames.ToList();
+//     }
+// }
+//         public virtual IEnumerable<Card> GetAllCards()
+// {
+//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+//     {
+//         var cards = from c in context.Cards
+//                     join s in context.States on c.StatePriority equals s.Priority into stateGroup
+//                     from state in stateGroup.DefaultIfEmpty()
+//                     select new Card
+//                     {
+//                         Id = c.Id,
+//                         Title = c.Title,
+//                         Description = c.Description,
+//                         Category = c.Category,
+//                         StatePriority = c.StatePriority,
+//                         StateName = state != null ? state.Name : string.Empty
+//                     };
+
+//         return cards.ToList();
+//     }
+// }
+
+            
+        
+
+       
+   public virtual void AddCard(Card card)
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        var state = context.States.FirstOrDefault(s => s.Name == "Backlog");
         if (state != null)
         {
-            card.State = state;
             card.StatePriority = state.Priority;
         }
         else
         {
             // Handle the case when the state is not found
-            // You can throw an exception or set a default state here
-            // throw new Exception("Default state 'TODO' not found.");
-            // Or set a default state
-            var defaultState = new State { Priority = 1, Name = "Default State" };
-            card.State = defaultState;
-            card.StatePriority = defaultState.Priority;
+            // Set default state priority to 1
+            card.StatePriority = 1;
+        }
+         
+
+        // Save the file to a specific location
+        if (card.File != null && card.File.Length > 0)
+        {
+            string fileName = Guid.NewGuid().ToString(); // Generate a unique file name
+            string filePath = Path.Combine("uploads", fileName); 
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                card.File.CopyTo(stream);
+            }
+            card.FilePath = filePath; // Store the file path in the FilePath property
         }
 
         context.Add(card);
@@ -41,49 +100,84 @@ namespace issuemodule.Models
     }
 }
 
+
+
+
      
         public virtual Card GetCard(int id)
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
     {
         var card = context.Cards.FirstOrDefault(c => c.Id == id);
+
+        if (card == null)
+        {
+            // Throw an exception or handle the case when the card is not found
+            throw new Exception($"Card with ID {id} not found");
+            // Alternatively, return null if desired
+            // return null;
+        }
+
         return card;
     }
 }
 
+//retrieve card by user
+// public virtual Card GetCardForUser(int id, string userId)
+// {
+//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+//     {
+//         var card = context.Cards.FirstOrDefault(c => c.Id == id && c.UserId == userId);
+//         return card;
+//     }
+// }
+
 
         public virtual Card UpdateCard(Card uCard)
-        {
-            using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
-            {
-                var card = context.Cards.FirstOrDefault(c => c.Id == uCard.Id);
-                if (card == null)
-                    return null;
-
-                card.Title = uCard.Title;
-                card.Description = uCard.Description;
-                context.SaveChanges();
-
-                var dashboardContext = context.Cards.Include(c => c.State);
-                return dashboardContext.FirstOrDefault(c => c.Id == uCard.Id);
-            }
-        }
-
-      public virtual Card ChangeStatusCard(int id)
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
     {
-        var card = context.Cards.Include(c => c.State).SingleOrDefault(m => m.Id == id);
+        var card = context.Cards.FirstOrDefault(c => c.Id == uCard.Id);
         if (card == null)
             return null;
 
-        card.State = context.States.FirstOrDefault(s => s.Priority == card.State.Priority + 1);
+        card.Title = uCard.Title;
+        card.Description = uCard.Description;
+         card.Category = uCard.Category;
+         card.File= uCard.File;
+        card.StatePriority = uCard.StatePriority; // Update the statePriority property
+        card.assignee = uCard.assignee;
         context.SaveChanges();
+
+        var updatedCard = context.Cards.FirstOrDefault(c => c.Id == uCard.Id);
+        return updatedCard;
+    }
+}
+
+
+     public virtual Card ChangeStatusCard(int id)
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        var card = context.Cards.SingleOrDefault(c => c.Id == id);
+        if (card == null)
+            return null;
+
+        var nextStatePriority = card.StatePriority + 1;
+        var nextState = context.States.FirstOrDefault(s => s.Priority == nextStatePriority);
+
+        if (nextState != null)
+        {
+            card.StatePriority = nextState.Priority;
+            context.SaveChanges();
+        }
 
         // Return the modified 'card' object directly
         return card;
     }
 }
+
+
 
 
         public virtual Card DeleteCard(int id)

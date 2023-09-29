@@ -1,9 +1,10 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Microsoft.OpenApi.Models;
-using UserManagement.Models;
+// using UserManagement.Models;
 using Microsoft.EntityFrameworkCore;
 using Use;
+using JwtAuthenticationManager;
 using UserManagement.RabbitMQ;
 
 namespace UserManagement
@@ -22,7 +23,9 @@ namespace UserManagement
 		options.UseMySQL(Configuration.GetConnectionString("UserCs"))
 	);
 			services.AddControllers();
+
 			services.AddScoped<JwtTokenHandler>();
+			// services.AddScoped<UserContext>();////////
 			services.AddCustomJwtAuthentication();
 
 			// Add services for Swagger

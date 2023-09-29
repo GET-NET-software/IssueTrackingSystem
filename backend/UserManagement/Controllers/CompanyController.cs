@@ -7,6 +7,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using UserManagement.Models;
+using JwtAuthenticationManager.Models;
 
 
 namespace UserManagement.Controllers
