@@ -1,31 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj": {}
+    "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj": {}
   },
   "projects": {
-    "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj": {
+    "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj",
+        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj",
         "projectName": "issuemodule",
-        "projectPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj",
-        "packagesPath": "C:\\Users\\Esrael\\.nuget\\packages\\",
-        "outputPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\issuemodule\\obj\\",
+        "projectPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj",
+        "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\issuemodule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Esrael\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj": {
+                "projectPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -44,7 +50,7 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
@@ -54,9 +60,143 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
+            "RabbitMQ.client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
+        "projectName": "UserManagement",
+        "projectPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
+        "packagesPath": "C:\\Users\\Wubishet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Wubishet\\Desktop\\Jwt Backup\\IssueTrackingSystem\\backend\\UserManagement\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Wubishet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.1.38, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "NuGet.Frameworks": {
+              "target": "Package",
+              "version": "[6.6.1, )"
+            },
+            "Ocelot": {
+              "target": "Package",
+              "version": "[19.0.2, )"
+            },
+            "Ocelot.Cache.CacheManager": {
+              "target": "Package",
+              "version": "[19.0.2, )"
+            },
+            "RabbitMQ.client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [

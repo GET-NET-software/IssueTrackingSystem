@@ -5,8 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UserManagement.Models;
 using UserManagement.DTOs;
-//using UserManagement.RabbitMQ;
-//using RabbitMQ.Client;
+using Use;
+using Microsoft.AspNetCore.Authorization;
+using UserManagement.RabbitMQ;
+using UserManagement.Models;
+using RabbitMQ.Client;
+using Newtonsoft.Json;
 
 namespace UserManagement.Controllers
 {
@@ -15,13 +19,15 @@ namespace UserManagement.Controllers
 	public class AuthController : ControllerBase
 	{
 		private readonly UserContext _dbContext;
-		//private readonly RabbitMQConnectionFactory _connectionFactory;  // rabbitmq connection factory
+		private readonly JwtTokenHandler _jwtTokenHandler;
+		private readonly RabbitMQConnectionFactory _connectionFactory;  // rabbitmq connection factory
 		//private readonly SendSessionClass _sendSession;
 
-		public AuthController(UserContext dbContext)
+		public AuthController(UserContext dbContext, JwtTokenHandler jwtTokenHandler, RabbitMQConnectionFactory connectionFactory)
 		{
 			_dbContext = dbContext;
-			//	_connectionFactory = connectionFactory;
+			_jwtTokenHandler = jwtTokenHandler;
+			_connectionFactory = connectionFactory;
 			//	_sendSession = sendSession;
 		}
 
@@ -33,8 +39,8 @@ namespace UserManagement.Controllers
 
 			var user = new User
 			{
-				FullName = request.FullName,
-				status = request.status,
+				UserName = request.UserName,
+				Role = "Client",
 				Email = request.Email,
 				companyId = request.companyId,
 				Password = hash,
@@ -61,24 +67,31 @@ namespace UserManagement.Controllers
 		// Login
 		[HttpPost]
 		[Route("login")]
-		public async Task<ActionResult<User>> Login(LoginDTO login)
+		public async Task<ActionResult<AuthenticationResponse?>> Login(LoginDTO authenticationRequest)
 		{
-			var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.FullName == login.FullName);
+			var authenticationResponse = await _jwtTokenHandler.GenerateJwtToken(authenticationRequest);
+			if (authenticationResponse == null)
+				return Unauthorized(new { message = "Invalid Username or Password"});
 
-			if (PasswordHasher.VerifyPassword(login.Password, user.Password, user.PasswordSalt))
-			{
-				//HttpContext.Session.SetString("UserName", user.FullName);
-				// Send session info
-				//_sendSession.SendSession(user.FullName);
+			// rabbitMQ
+			// using var connection = _connectionFactory.CreateConnection();
+			// using var channel = connection.CreateModel();
+			// channel.QueueDeclare(
+			// 	queue: "JwtClaims",
+			// 	durable: false,
+			// 	exclusive: false,
+			// 	autoDelete: false,
+			// 	arguments: null);
 
-				// Successful login
-				return Ok("Hello " + user.FullName);
-			}
-			else
-			{
-				return BadRequest("Invalid username or password");
-			}
+			// var message = JsonConvert.SerializeObject(authenticationResponse.Value);
 
+			// var encodedMessage = Encoding.UTF8.GetBytes(message);
+
+			// channel.BasicPublish("", "JwtClaims", null, encodedMessage);
+			// string token = authenticationResponse;
+			Response.Headers.Add("Authorization", $"Bearer {authenticationResponse}");
+
+			return authenticationResponse;
 		}
 
 		// Log out
@@ -95,6 +108,8 @@ namespace UserManagement.Controllers
 		// check current user
 		[HttpGet]
 		[Route("checkUser")]
+		[Authorize]
+		// [Authorize(Roles = "Admin")]
 		public IActionResult CheckUser()
 		{
 			return Ok(new {message = "ok"});

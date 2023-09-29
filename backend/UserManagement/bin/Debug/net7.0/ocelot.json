@@ -105,7 +105,11 @@
 			"UpstreamPathTemplate": "/dashboard/getallcards",
 			"UpstreamHttpMethod": [
 				"GET"
-			]
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
+			}
 		},
 		{
 			"DownstreamPathTemplate": "/api/Dashboard/addissue",

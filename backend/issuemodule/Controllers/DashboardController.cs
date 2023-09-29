@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using issuemodule.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace issuemodule.Controllers
 {
@@ -20,6 +21,7 @@ namespace issuemodule.Controllers
         //   GET: api/Dashboard
         [HttpGet]
         [Route("getallcards")]
+		[Authorize]
         public IActionResult GetAll()
         {
             var cards = businessLogic.GetAllCards();
