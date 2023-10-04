@@ -43,20 +43,23 @@ namespace UserManagement.Controllers
 				Password = hash,
 				PasswordSalt = salt
 			};
-
+			Console.WriteLine(user.PasswordSalt);
 			try
 			{
-				_dbContext.Users.Add(user);
+                Console.WriteLine("A0");
+                _dbContext.Users.Add(user);
+				Console.WriteLine("A1");
 				await _dbContext.SaveChangesAsync();
-				// log in after sign up
-				//HttpContext.Session.SetString("UserName", user.FullName);
-				// Send session info
-				//_sendSession.SendSession(user.FullName);
-				return Ok(user);
+                Console.WriteLine("A2");
+                // log in after sign up
+                //HttpContext.Session.SetString("UserName", user.FullName);
+                // Send session info
+                //_sendSession.SendSession(user.FullName);
+                return Ok(user);
 			}
 			catch (DbUpdateException e)
 			{
-				return Ok(new { message = "Username or Email is not available." });
+				return Ok(new { message = e.Message });
 			}
 
 		}

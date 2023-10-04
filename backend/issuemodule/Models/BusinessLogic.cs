@@ -1,10 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Http;
+ using System.Web;
+
 
 namespace issuemodule.Models
 {
     public class BusinessLogic
     {
+        
         
 
 
@@ -121,16 +128,49 @@ public virtual IEnumerable<CardDTO> GetAllCards()
         return card;
     }
 }
+public List<Card> GetAllForUser(HttpContext httpContext)
+{
+    var userName = GetUserNameFromToken(httpContext); // Call the GetUserNameFromToken method
+    Console.WriteLine(userName);
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        var cards = context.Cards.Where(c => c.UserName == userName).ToList();
+        return cards;
+    }
+}
+private string GetUserNameFromToken(HttpContext httpContext)
+{
+    var tokenHandler = new JwtSecurityTokenHandler();
+    var key = Encoding.ASCII.GetBytes("qwertyuiopASDFGHJKLzxcvbnmqwertyuiopASDFGHJKLzxcvbnm"); // Replace with your JWT secret key
+var tokenString = httpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", string.Empty);
+  
+    var tokenValidationParameters = new TokenValidationParameters
+  {
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = new SymmetricSecurityKey(key),
+    ValidateIssuer = false,
+    ValidateAudience = false
+  };
 
-//retrieve card by user
-// public virtual Card GetCardForUser(int id, string userId)
-// {
-//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
-//     {
-//         var card = context.Cards.FirstOrDefault(c => c.Id == id && c.UserId == userId);
-//         return card;
-//     }
-// }
+  SecurityToken validatedToken;
+
+  var claimsPrincipal = tokenHandler.ValidateToken(tokenString, tokenValidationParameters, out validatedToken);
+
+  var usernameClaim = claimsPrincipal.FindFirst(JwtRegisteredClaimNames.Name);
+  if (usernameClaim != null)
+  {
+    return usernameClaim.Value;
+  }
+  else
+  {
+    return null; // Username claim not found in the token
+  }
+}
+
+
+
+
+
 
 
         public virtual Card UpdateCard(Card uCard)

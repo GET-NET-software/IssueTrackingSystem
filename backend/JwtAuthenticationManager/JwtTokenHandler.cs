@@ -50,7 +50,8 @@ namespace Use
 			var claimsIdentity = new ClaimsIdentity(new List<Claim>
 			{
 				new Claim(JwtRegisteredClaimNames.Name, authenticationRequest.UserName),
-				new Claim(ClaimTypes.Role, user.Role)
+				new Claim(ClaimTypes.Role, user.Role),
+				new Claim("CompanyId", user.companyId.ToString())
 			});
 
 			var signingCredentials = new SigningCredentials(

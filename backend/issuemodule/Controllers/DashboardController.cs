@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using issuemodule.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace issuemodule.Controllers
 {
@@ -28,6 +29,9 @@ namespace issuemodule.Controllers
 			return Ok(cards);
 
 		}
+		
+
+
 
 		// GET: api/Dashboard/5
 		[HttpGet("{id}")]
@@ -40,21 +44,22 @@ namespace issuemodule.Controllers
 			return Ok(card);
 		}
 		//retrieve cards by user
-		// [HttpGet("{id}")]
-		// [Authorize]
-		// public IActionResult Get(int id)
-		// {
-		//     // Get the current user's identifier (assuming it's stored in the subject claim)
-		//     var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+		[HttpGet]
+[Route("getallcardsforuser")]
+[Authorize]
+public IActionResult GetAllCardsForUser()
+{
+    // Get the current user's identifier from the JWT token
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-		//     // Retrieve cards for the specific user based on the user identifier
-		//     var card = businessLogic.GetCardForUser(id, userId); // Modify this method based on your business logic
+    // Use the user ID to retrieve all cards associated with that user
+    var cards = businessLogic.GetAllForUser(HttpContext); // Call the GetAllForUser method
 
-		//     if (card == null)
-		//         return NotFound();
+    if (cards == null)
+        return NotFound();
 
-		//     return Ok(card);
-		// }
+    return Ok(cards);
+}
 
 		// POST: api/Dashboard
 		[HttpPost]
