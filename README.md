@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This is an issue tracking system, a web application designed to help teams manage and track their projects and tasks efficiently. The system is divided into three main components: frontend, admin frontend, and backend. The frontend is built using React and Vite, with UI components from Ant Design and Tailwind CSS. The backend is developed using .NET Core 7.0.0 and follows a microservices architecture, with communication facilitated by RabbitMQ and routing handled by Ocelot API Gateway.
+This is an issue tracking system, a web application designed to help our company track issues of its products that came from the customer. The system is divided into three main components: frontend, admin frontend, and backend. The frontend is built using React and Vite, with UI components from Ant Design and Tailwind CSS. The backend is developed using .NET Core 7.0.0 and follows a microservices architecture, with communication facilitated by RabbitMQ and routing handled by Ocelot API Gateway.
 
 ## Prerequisites
 
