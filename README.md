@@ -1,6 +1,6 @@
 # Issue Tracking System
 
-![Project Logo](/path/to/your/logo.png) <!-- If you have a project logo, include it here -->
+![Project Logo](/frontend/src/images/logo.png) <!-- If you have a project logo, include it here -->
 
 ## Introduction
 
