@@ -72,16 +72,16 @@ npm run dev
 
 ## Contributers
 
-Frontend :point_right: **Meron Kedir**
+Frontend :point_right: **Meron Kedir** :woman:
 
-Frontend :point_right: **Metasebia Tariku**
+Frontend :point_right: **Metasebia Tariku** :woman:
 
-Frontend :point_right: **Yonas Abebe**
+Frontend :point_right: **Yonas Abebe** :man:
 
-Backend :point_right: **Nardos Hadis**
+Backend :point_right: **Nardos Hadis** :woman:
 
-Backend :point_right: **Mihret Tibebe**
+Backend :point_right: **Mihret Tibebe** :woman:
 
-Backend :point_right: **Nahom Mulugeta**
+Backend :point_right: **Nahom Mulugeta** :man:
 
-Backend :point_right: **Nahom Getachew**
+Backend :point_right: **Nahom Getachew** :man:
