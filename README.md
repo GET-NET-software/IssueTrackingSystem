@@ -24,6 +24,7 @@ To get started, clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/GET-NET-software/IssueTrackingSystem.git
+```
 
 ### Frontend Setup
 
@@ -32,12 +33,14 @@ git clone https://github.com/GET-NET-software/IssueTrackingSystem.git
 ```bash
 cd frontend
 npm install
+```
 
 1. Navigate to the `admin` directory and install the necessary dependencies:
 
 ```bash
 cd ../admin
 npm install
+```
 
 ## Backend Setup
 
@@ -65,10 +68,11 @@ With all dependencies and setup complete, you can now run the issue tracking sys
 
 ```bash
 npm run dev
+```
 
-##Contributers
+## Contributers
 
-Frontend :point_right: ** Meron Kedir **
+Frontend :point_right: **Meron Kedir**
 
 Frontend :point_right: **Metasebia Tariku**
 
