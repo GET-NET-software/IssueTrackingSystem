@@ -24,22 +24,53 @@ namespace LicenseManagementService.Migrations
                     b.Property<string>("product_license")
                         .HasColumnType("varchar(255)");
 
+                    b.Property<string>("companyId")
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime?>("expired_date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("product_name")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("product_status")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("user_id")
+                    b.Property<string>("issuedate")
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("productId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.HasKey("product_license");
 
+                    b.HasIndex("productId");
+
                     b.ToTable("products");
+                });
+
+            modelBuilder.Entity("LicenseManagementService.Models.Product", b =>
+                {
+                    b.Property<int?>("productId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Desc")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("productName")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("productId");
+
+                    b.ToTable("products_by");
+                });
+
+            modelBuilder.Entity("LicenseManagementService.Models.License", b =>
+                {
+                    b.HasOne("LicenseManagementService.Models.Product", "products_by")
+                        .WithMany()
+                        .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("products_by");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LicenseManagementService.Models
 {
@@ -7,12 +8,15 @@ namespace LicenseManagementService.Models
         [Key]
         public string? product_license { get; set; }
 
-        public string? product_name { get; set; }
+        [Display (Name ="Product")]
+        public virtual int? productId { get; set; }
 
-        public string? product_status { get; set; }
+        [ForeignKey("productId")]
+        public virtual  Product products_by { get; set; }
 
+        public int? companyId { get; set; }
         [Required]
-        public string? user_id { get; set; }
+        public string? issuedate { get; set; }
 
         public DateTime? expired_date { get; set; }
     }

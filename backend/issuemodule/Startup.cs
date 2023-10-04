@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using JwtAuthenticationManager;
+using Use;
 
 namespace issuemodule
 {
@@ -19,9 +21,10 @@ namespace issuemodule
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+			services.AddCustomJwtAuthentication();
 
-            // Add services for Swagger
-            services.AddEndpointsApiExplorer();
+			// Add services for Swagger
+			services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
@@ -52,6 +55,7 @@ namespace issuemodule
             // app.UseHttpsRedirection();
 
             app.UseRouting();
+			app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

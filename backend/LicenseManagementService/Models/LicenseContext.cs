@@ -10,5 +10,6 @@ namespace LicenseManagementService.Models
         }
 
         public DbSet<License> products { get; set; }
+        public DbSet<Product> products_by { get; set; }
     }
 }
