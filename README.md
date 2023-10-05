@@ -76,7 +76,7 @@ Frontend :point_right: **Meron Kedir** :woman:
 
 Frontend :point_right: **Metasebia Tariku** :woman:
 
-Frontend :point_right: **Yonas Abebe** :man:
+Frontend :point_right: **Yonas Sisay** :man:
 
 Backend :point_right: **Nardos Hadis** :woman:
 
