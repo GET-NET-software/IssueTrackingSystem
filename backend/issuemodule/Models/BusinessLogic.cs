@@ -1,26 +1,48 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Http;
+ using System.Web;
+
 
 namespace issuemodule.Models
 {
     public class BusinessLogic
     {
-  
-        public virtual IEnumerable<Card> GetAllCards()
-        {
-            using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
-            {
-                var dashboardContext = context.Cards;
-                return dashboardContext.ToList();
-            }
-        }
+        
+        
 
-       
-   public virtual void AddCard(Card card)
+
+public virtual IEnumerable<CardDTO> GetAllCards()
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
     {
-        var state = context.States.FirstOrDefault(s => s.Name == "TODO");
+        var cardDTOs = from c in context.Cards
+                       join s in context.States on c.StatePriority equals s.Priority into stateGroup
+                       from state in stateGroup.DefaultIfEmpty()
+                       select new CardDTO
+                       {
+                           Id = c.Id,
+                           Title = c.Title,
+                           Description = c.Description,
+                           Category = c.Category,
+                           StatePriority = c.StatePriority,
+                           StateName = state != null ? state.Name : string.Empty
+                       };
+
+        return cardDTOs.ToList();
+    }
+}
+
+
+     
+   public virtual void AddCard(Card card,HttpContext httpContext)
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        var state = context.States.FirstOrDefault(s => s.Name == "Backlog");
         if (state != null)
         {
             card.StatePriority = state.Priority;
@@ -31,23 +53,16 @@ namespace issuemodule.Models
             // Set default state priority to 1
             card.StatePriority = 1;
         }
+        
+        // Upload the file as binary into the database
+       
 
-        // Save the file to a specific location
-        if (card.File != null && card.File.Length > 0)
-        {
-            string fileName = Guid.NewGuid().ToString(); // Generate a unique file name
-            string filePath = Path.Combine("uploads", fileName); 
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                card.File.CopyTo(stream);
-            }
-            card.FilePath = filePath; // Store the file path in the FilePath property
-        }
-
+         card.UserName=GetUserNameFromToken(httpContext);
         context.Add(card);
         context.SaveChanges();
     }
 }
+
 
 
 
@@ -58,18 +73,61 @@ namespace issuemodule.Models
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
     {
         var card = context.Cards.FirstOrDefault(c => c.Id == id);
+
+        if (card == null)
+        {
+            // Throw an exception or handle the case when the card is not found
+            throw new Exception($"Card with ID {id} not found");
+            // Alternatively, return null if desired
+            // return null;
+        }
+
         return card;
     }
 }
-//retrieve card by user
-// public virtual Card GetCardForUser(int id, string userId)
-// {
-//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
-//     {
-//         var card = context.Cards.FirstOrDefault(c => c.Id == id && c.UserId == userId);
-//         return card;
-//     }
-// }
+public List<Card> GetAllForUser(HttpContext httpContext)
+{
+    var userName = GetUserNameFromToken(httpContext); // Call the GetUserNameFromToken method
+    Console.WriteLine(userName);
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        var cards = context.Cards.Where(c => c.UserName == userName).ToList();
+        return cards;
+    }
+}
+private string GetUserNameFromToken(HttpContext httpContext)
+{
+    var tokenHandler = new JwtSecurityTokenHandler();
+    var key = Encoding.ASCII.GetBytes("qwertyuiopASDFGHJKLzxcvbnmqwertyuiopASDFGHJKLzxcvbnm"); // Replace with your JWT secret key
+var tokenString = httpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", string.Empty);
+  
+    var tokenValidationParameters = new TokenValidationParameters
+  {
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = new SymmetricSecurityKey(key),
+    ValidateIssuer = false,
+    ValidateAudience = false
+  };
+
+  SecurityToken validatedToken;
+
+  var claimsPrincipal = tokenHandler.ValidateToken(tokenString, tokenValidationParameters, out validatedToken);
+
+  var usernameClaim = claimsPrincipal.FindFirst(JwtRegisteredClaimNames.Name);
+  if (usernameClaim != null)
+  {
+    return usernameClaim.Value;
+  }
+  else
+  {
+    return null; // Username claim not found in the token
+  }
+}
+
+
+
+
+
 
 
         public virtual Card UpdateCard(Card uCard)
@@ -132,6 +190,34 @@ namespace issuemodule.Models
                 return card;
             }
         }
+               public virtual int GetNumberOfCards()
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        int numberOfCards = context.Cards.Count();
+
+        return numberOfCards;
+    }
+}
+public virtual int GetNumberOfCardssolved()
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        int numberOfCards = context.Cards.Count(c => c.StatePriority == 4);
+
+        return numberOfCards;
+    }
+}
+
+public virtual int GetNumberOfUnsolvedIssues()
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        int numberOfIssues = context.Cards.Count(c => c.StatePriority < 4);
+
+        return numberOfIssues;
+    }
+}
 
        
     }

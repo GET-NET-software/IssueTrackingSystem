@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kal\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
+    "c:\\Users\\kal\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kal\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {
+    "c:\\Users\\kal\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kal\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "projectUniqueName": "c:\\Users\\kal\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
         "projectName": "UserManagement",
-        "projectPath": "C:\\Users\\kal\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+        "projectPath": "c:\\Users\\kal\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
         "packagesPath": "C:\\Users\\kal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kal\\Desktop\\backend\\UserManagementService\\UserManagement\\obj\\",
+        "outputPath": "c:\\Users\\kal\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kal\\AppData\\Roaming\\NuGet\\NuGet.Config",

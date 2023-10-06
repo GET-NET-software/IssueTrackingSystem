@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EqWPfdjUI6KhDeljqbHCXalDRpCHQRP6PNA3cZOeVnGqce/FSE3xDOkzAa6tMx9mnVAUx9EA+tatYAQt2OURDg==",
+  "dgSpecHash": "6NVAPTRyTvBSfaOHalFuu5tk6AKNpAF7j/xpq9AB/ESQ8+Bs9N7UV9O7zzKWAOOELFS9MWLjyGGRzEEOH75+kg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kal\\Desktop\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
+  "projectFilePath": "c:\\Users\\kal\\Documents\\GitHub\\IssueTrackingSystem\\backend\\UserManagementService\\UserManagement\\UserManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kal\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\kal\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
