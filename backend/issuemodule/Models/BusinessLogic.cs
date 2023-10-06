@@ -37,43 +37,8 @@ public virtual IEnumerable<CardDTO> GetAllCards()
 }
 
 
-  
-//   public virtual IEnumerable<string> GetAllCardNamesByPriority()
-// {
-//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
-//     {
-//        var cardNames = from c in context.Cards
-//                         join s in context.States on c.StatePriority equals s.Priority
-//                         select s.Name ?? string.Empty; // Handle null values by using a default value
-//         return cardNames.ToList();
-//     }
-// }
-//         public virtual IEnumerable<Card> GetAllCards()
-// {
-//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
-//     {
-//         var cards = from c in context.Cards
-//                     join s in context.States on c.StatePriority equals s.Priority into stateGroup
-//                     from state in stateGroup.DefaultIfEmpty()
-//                     select new Card
-//                     {
-//                         Id = c.Id,
-//                         Title = c.Title,
-//                         Description = c.Description,
-//                         Category = c.Category,
-//                         StatePriority = c.StatePriority,
-//                         StateName = state != null ? state.Name : string.Empty
-//                     };
-
-//         return cards.ToList();
-//     }
-// }
-
-            
-        
-
-       
-   public virtual void AddCard(Card card)
+     
+   public virtual void AddCard(Card card,HttpContext httpContext)
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
     {
@@ -88,24 +53,16 @@ public virtual IEnumerable<CardDTO> GetAllCards()
             // Set default state priority to 1
             card.StatePriority = 1;
         }
-         
+        
+        // Upload the file as binary into the database
+       
 
-        // Save the file to a specific location
-        if (card.File != null && card.File.Length > 0)
-        {
-            string fileName = Guid.NewGuid().ToString(); // Generate a unique file name
-            string filePath = Path.Combine("uploads", fileName); 
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                card.File.CopyTo(stream);
-            }
-            card.FilePath = filePath; // Store the file path in the FilePath property
-        }
-
+         card.UserName=GetUserNameFromToken(httpContext);
         context.Add(card);
         context.SaveChanges();
     }
 }
+
 
 
 
@@ -233,6 +190,34 @@ var tokenString = httpContext.Request.Headers["Authorization"].ToString().Replac
                 return card;
             }
         }
+               public virtual int GetNumberOfCards()
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        int numberOfCards = context.Cards.Count();
+
+        return numberOfCards;
+    }
+}
+public virtual int GetNumberOfCardssolved()
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        int numberOfCards = context.Cards.Count(c => c.StatePriority == 4);
+
+        return numberOfCards;
+    }
+}
+
+public virtual int GetNumberOfUnsolvedIssues()
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        int numberOfIssues = context.Cards.Count(c => c.StatePriority < 4);
+
+        return numberOfIssues;
+    }
+}
 
        
     }

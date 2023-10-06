@@ -98,7 +98,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/Dashboard/getallcardsforuser",
+			"DownstreamPathTemplate": "/api/Dashboard/getallcards",
 			"DownstreamScheme": "http",
 			"DownstreamHostAndPorts": [
 				{
@@ -106,7 +106,7 @@
 					"Port": "5299"
 				}
 			],
-			"UpstreamPathTemplate": "/dashboard/getallcardsforuser",
+			"UpstreamPathTemplate": "/dashboard/getallcards",
 			"UpstreamHttpMethod": [
 				"GET"
 			],
@@ -166,15 +166,15 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/License/productNameOfCompany",
-			"DownstreamScheme": "https",
+			"DownstreamPathTemplate": "/api/[controller]/getallcardsforuser",
+			"DownstreamScheme": "http",
 			"DownstreamHostAndPorts": [
 				{
 					"Host": "localhost",
-					"Port": "7017"
+					"Port": "5299"
 				}
 			],
-			"UpstreamPathTemplate": "/user/productNameOfCompany",
+			"UpstreamPathTemplate": "/dashboard/getallcardsforuser",
 			"UpstreamHttpMethod": [
 				"GET"
 			],
@@ -182,6 +182,48 @@
 				"AuthenticationProviderKey": "Bearer",
 				"AllowedScopes": []
 			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Stat/getnocards",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/stat/getnoissues",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Stat/getsolvedcards",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/stat/getsolvedissues",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Stat/getunsolvedcards",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/stat/getunsolvedissues",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
 		}
 	],
 	"GlobalCorsPolicy": {
