@@ -1,13 +1,11 @@
 import React from 'react'
 import SideBar from '../components/SideBar'
 import Table from '../components/Table'
-import DropDown from '../components/DropDown'
 function homepage() {
   return (
     <div>
-        <SideBar/>
+        <SideBar/>    
         <Table/>
-        <DropDown/>
     </div>
   )
 }

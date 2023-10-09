@@ -1,6 +1,71 @@
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+
 
 function Signup(){
+  
+  const [formData, setFormData] = useState({
+    userName: '',
+    email: '',
+    password: '',
+    companyId: 1
+  });
+  
+  
+  const [companies, setCompanies] = useState([]);
+  const[selectedoption, setSelectedOption] = useState(1);
+
+
+  // You can fetch and populate the `companies` state here
+  useEffect(() => {
+    // Fetch your company data and set it in the state
+    const fetchCompanies = async () => {
+      try {
+        // Fetch your companies data here, e.g., from an API
+        const response = await axios.get('http://localhost:5286/user/Register');
+        const data = await response.data;
+        setCompanies(data);
+        console.log(data[0].companyId)
+      } catch (error) {
+        console.error('Error fetching companies:', error);
+      }
+    };
+
+    // Call the fetchCompanies function
+    fetchCompanies();
+  }, []);
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setSelectedOption(parseInt(e.target.value) );
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+       // Update the companyId in formData before sending the request
+       formData.companyId = selectedoption; 
+      // Send a POST request to your API endpoint for user signup
+      const response = await axios.post('http://localhost:5286/user/Register', formData);
+      navigate('/history',{ replace:true})
+
+      // Handle the response, e.g., show a success message or redirect
+      console.log('User signed up successfully:', response.data);
+      alert("user registered succesfully");
+      // toHistory()
+    } catch (error) {
+      // Handle errors, e.g., display an error message
+      console.error('Error signing up:', error);
+      alert("Error signing up");
+
+    }
+    localStorage.setItem("name", JSON.stringify("Hello " + formData.userName));
+
+  };
     const navigate = useNavigate();
 
   const toContact = () => {
@@ -14,6 +79,12 @@ function Signup(){
   }
   const toLogin = () => {
     navigate('/login',{ replace:true})
+  }
+  // const toHistory = () => {
+  //   navigate('/history',{ replace:true})
+  // }
+  const toHistory = ({name}) => {
+    navigate('/history',{ replace:true})
   }
     return (
         <>
@@ -70,25 +141,47 @@ function Signup(){
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                  Sign Up
               </h1>
-              <form class="space-y-4 md:space-y-6" action="#">
+              <form onSubmit={handleSubmit} class="space-y-4 md:space-y-6" action="#">
                   <div>
-                      <label for="Username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username </label>
-                      <input type="Username" name="Username" id="Username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="username" required=""></input>
+                      <label for=" userName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Username </label>
+                      <input value={formData. userName} onChange={handleChange} type="text" name="userName" id="userName" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="username" required=""></input>
+                  </div>
+                  <div>
+                      <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                      <input value={formData.email} onChange={handleChange} type="email" name="email" id="email" placeholder="info@example.com" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""></input>
                   </div>
                   <div>
                       <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                      <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""></input>
+                      <input  value={formData.password} onChange={handleChange} type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""></input>
                   </div>
+
+                
+        
                   <div>
-                      <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                      <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""></input>
-                  </div>
+      <label htmlFor="companyName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Company Name
+      </label>
+      <select
+        className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        id="companyName"
+        type="number"
+        placeholder="Select company"
+        value={selectedoption}
+        onChange={handleChange}
+
+       
+      >
+        {/* Map through the companies array and generate options */}
+        {companies.map((company) => (
+          <option key={company.id} value={company.companyId}>
+            {company.companyName} 
+            
+          </option>
+        ))}
+      </select>
+    </div>
                   <div>
-                      <label for="Company Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company Name</label>
-                      <input type="Company Name" name="company Name" id="company Name" placeholder="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""></input>
-                  </div>
-                  <div>
-        <button onClick={toClient} type="submit" class="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</button>
+        <button  type="submit" class="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</button>
       </div>
                   {/* <div class="flex items-start">
                    

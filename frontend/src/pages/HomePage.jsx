@@ -8,6 +8,7 @@ import { Outlet, Link } from "react-router-dom";
 
 function Home() {
   const [show, setShow] = useState(false)
+  const [loggedin, setLoggedin] = useState(false)
   const showButon =()=>{
     setShow(!show)
   }
@@ -30,9 +31,13 @@ function Home() {
       <Link to={`/login`}>Login</Link>
         </div>
         
-        <div className="px-3 py-2 flex items-center text-base uppercase font-bold leading-snug text-white  hover:opacity-75">
-        <Link to={`/signup`}>Register</Link>
+       {loggedin ? (
+        <div className="px-3 py-2 flex items-center text-base uppercase font-bold leading-snug text-white hover:opacity-75">
+          <Link to="/signup">Register</Link>
         </div>
+      ) :  <div className="px-3 py-2 flex items-center text-base uppercase font-bold leading-snug text-white hover:opacity-75">
+      <Link to="/signup">Register</Link>
+    </div>}
 
         <div className="px-3 py-2 flex items-center text-base uppercase font-bold leading-snug text-white  hover:opacity-75">
           <Link to={'/contact'}>Contact Us</Link>
