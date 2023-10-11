@@ -17,7 +17,8 @@ namespace issuemodule.Models
         [NotMapped]
         [Display(Name = "File")]
           
-        public IFormFile? File { get; set; }
+        public  byte[] File { get; set; }
+    
          public string? FilePath { get; set; } 
         public int StatePriority { get; set; }
         public string UserName { get; set; }

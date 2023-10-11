@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj": {}
+    "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\issuemodule\\issuemodule.csproj": {}
   },
   "projects": {
-    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj": {
+    "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\issuemodule\\issuemodule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj",
+        "projectUniqueName": "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\issuemodule\\issuemodule.csproj",
         "projectName": "issuemodule",
-        "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\issuemodule\\issuemodule.csproj",
-        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\issuemodule\\obj\\",
+        "projectPath": "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\issuemodule\\issuemodule.csproj",
+        "packagesPath": "C:\\Users\\kal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\issuemodule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
-                "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj"
+              "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
+                "projectPath": "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj"
               }
             }
           }
@@ -64,6 +65,10 @@
               "target": "Package",
               "version": "[13.0.3, )"
             },
+            "RabbitMQ.client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -88,21 +93,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
+    "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
+        "projectUniqueName": "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
         "projectName": "JwtAuthenticationManager",
-        "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
-        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\obj\\",
+        "projectPath": "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
+        "packagesPath": "C:\\Users\\kal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kal\\Desktop\\GetNet-soft\\backend\\JwtAuthenticationManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -144,6 +149,10 @@
               "target": "Package",
               "version": "[7.0.1, )"
             },
+            "RabbitMQ.client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.0.1, )"
@@ -165,7 +174,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

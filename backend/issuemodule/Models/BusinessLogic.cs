@@ -5,16 +5,28 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Http;
  using System.Web;
+using issuemodule.Controllers;
+using issuemodule.RabbitMQ;
 
 
 namespace issuemodule.Models
 {
     public class BusinessLogic
     {
-        
-        
+       
+public List<String> ListUserNames()
+{
+    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+    {
+        var usernames = (from c in context.Cards
+                         select c.UserName).ToList();
 
 
+        return usernames;
+
+        
+    }
+}
 public virtual IEnumerable<CardDTO> GetAllCards()
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
@@ -29,8 +41,11 @@ public virtual IEnumerable<CardDTO> GetAllCards()
                            Description = c.Description,
                            Category = c.Category,
                            StatePriority = c.StatePriority,
+                           UserName= c.UserName,
                            StateName = state != null ? state.Name : string.Empty
                        };
+    
+
 
         return cardDTOs.ToList();
     }
@@ -63,11 +78,7 @@ public virtual IEnumerable<CardDTO> GetAllCards()
     }
 }
 
-
-
-
-
-     
+ 
         public virtual Card GetCard(int id)
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))

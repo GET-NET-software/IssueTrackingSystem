@@ -6,4 +6,5 @@ public class CardDTO
     public string Category { get; set; }
     public int StatePriority { get; set; }
     public string StateName { get; set; }
+    public string UserName { get; set; }
 }
