@@ -1,0 +1,259 @@
+{
+	"Routes": [
+		{
+			"DownstreamPathTemplate": "/api/Auth/register",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user/register",
+			"UpstreamHttpMethod": [
+				"POST"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Auth/login",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user/login",
+			"UpstreamHttpMethod": [
+				"POST"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Auth/logout",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user/logout",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Admin/getListofUserNames",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+			  {
+				"Host": "localhost",
+				"Port": "5286"
+			  }
+			],
+			"UpstreamPathTemplate": "/admin/getListofUserNames",
+			"UpstreamHttpMethod": [
+			  "GET"
+			]
+		  },
+		{
+			"DownstreamPathTemplate": "/api/Auth/checkUser",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user",
+			"UpstreamHttpMethod": [
+				"GET"
+			],
+			"FileCacheOptions": {
+				"TtlSeconds": 30
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Company/getCompanies",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5286"
+				}
+			],
+			"UpstreamPathTemplate": "/user/register",
+			"UpstreamHttpMethod": [
+				"GET"
+			],
+			"FileCacheOptions": {
+				"TtlSeconds": 30
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Dashboard/{id}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/{id}",
+			"UpstreamHttpMethod": [
+				"GET"
+			],
+			"FileCacheOptions": {
+				"TtlSeconds": 30
+			},
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Dashboard/getallcards",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/getallcards",
+			"UpstreamHttpMethod": [
+				"GET"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Dashboard/addissue",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/addissue",
+			"UpstreamHttpMethod": [
+				"POST"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/dashboard/update/{id}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/update/{id}",
+			"UpstreamHttpMethod": [
+				"PUT"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/dashboard/remove/{id}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/remove/{id}",
+			"UpstreamHttpMethod": [
+				"DELETE"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/[controller]/getallcardsforuser",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/dashboard/getallcardsforuser",
+			"UpstreamHttpMethod": [
+				"GET"
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "Bearer",
+				"AllowedScopes": []
+			}
+		},
+		{
+			"DownstreamPathTemplate": "/api/Stat/getnocards",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/stat/getnoissues",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Stat/getsolvedcards",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/stat/getsolvedissues",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Stat/getunsolvedcards",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": "5299"
+				}
+			],
+			"UpstreamPathTemplate": "/stat/getunsolvedissues",
+			"UpstreamHttpMethod": [
+				"GET"
+			]
+		}
+	],
+	"GlobalCorsPolicy": {
+		"CorsName": "AllowAll",
+		"AllowedOrigins": [
+			"*"
+		],
+		"AllowedHeaders": [
+			"*"
+		],
+		"AllowedMethods": [
+			"*"
+		],
+		"AllowCredentials": false
+	},
+	"GlobalConfiguration": {
+		"BaseUrl": "http://localhost:5010"
+	}
+}
