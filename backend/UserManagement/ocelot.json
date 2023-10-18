@@ -43,6 +43,20 @@
 			]
 		},
 		{
+			"DownstreamPathTemplate": "/api/Admin/getListofUserNames",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+			  {
+				"Host": "localhost",
+				"Port": "5286"
+			  }
+			],
+			"UpstreamPathTemplate": "/admin/getListofUserNames",
+			"UpstreamHttpMethod": [
+			  "GET"
+			]
+		  },
+		{
 			"DownstreamPathTemplate": "/api/Auth/checkUser",
 			"DownstreamScheme": "http",
 			"DownstreamHostAndPorts": [
@@ -130,7 +144,7 @@
 			]
 		},
 		{
-			"DownstreamPathTemplate": "/api/[controller]/update/{id}",
+			"DownstreamPathTemplate": "/api/dashboard/update/{id}",
 			"DownstreamScheme": "http",
 			"DownstreamHostAndPorts": [
 				{
@@ -148,7 +162,7 @@
 			}
 		},
 		{
-			"DownstreamPathTemplate": "/api/[controller]/remove/{id}",
+			"DownstreamPathTemplate": "/api/dashboard/remove/{id}",
 			"DownstreamScheme": "http",
 			"DownstreamHostAndPorts": [
 				{

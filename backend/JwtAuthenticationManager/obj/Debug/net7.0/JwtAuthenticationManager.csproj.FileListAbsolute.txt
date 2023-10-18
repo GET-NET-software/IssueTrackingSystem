@@ -34,3 +34,15 @@ A:\Intern\GET-NET\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug
 A:\Intern\GET-NET\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\refint\JwtAuthenticationManager.dll
 A:\Intern\GET-NET\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.pdb
 A:\Intern\GET-NET\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\ref\JwtAuthenticationManager.dll
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\bin\Debug\net7.0\JwtAuthenticationManager.deps.json
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\bin\Debug\net7.0\JwtAuthenticationManager.dll
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\bin\Debug\net7.0\JwtAuthenticationManager.pdb
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.csproj.AssemblyReference.cache
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.AssemblyInfoInputs.cache
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.AssemblyInfo.cs
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.csproj.CoreCompileInputs.cache
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.dll
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\refint\JwtAuthenticationManager.dll
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\JwtAuthenticationManager.pdb
+C:\Issue_Tracking_System\IssueTrackingSystem\backend\JwtAuthenticationManager\obj\Debug\net7.0\ref\JwtAuthenticationManager.dll

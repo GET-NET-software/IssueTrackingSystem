@@ -13208,34 +13208,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hp\\.nuget\\packages\\": {}
+    "C:\\Users\\Esrael\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
+      "projectUniqueName": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
       "projectName": "UserManagement",
-      "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
-      "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\UserManagement\\obj\\",
+      "projectPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\UserManagement\\UserManagement.csproj",
+      "packagesPath": "C:\\Users\\Esrael\\.nuget\\packages\\",
+      "outputPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\UserManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Esrael\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
-              "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj"
+            "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
+              "projectPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj"
             }
           }
         }
@@ -13340,7 +13338,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

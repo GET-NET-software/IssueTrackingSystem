@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {}
+    "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {}
   },
   "projects": {
-    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
+    "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
+        "projectUniqueName": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
         "projectName": "JwtAuthenticationManager",
-        "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
-        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\obj\\",
+        "projectPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
+        "packagesPath": "C:\\Users\\Esrael\\.nuget\\packages\\",
+        "outputPath": "C:\\Issue_Tracking_System\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Esrael\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

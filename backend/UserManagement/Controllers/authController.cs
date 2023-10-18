@@ -1,13 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-// using UserManagement.Models;
-// using UserManagement.DTOs;
 using Use;
 using Microsoft.AspNetCore.Authorization;
 using UserManagement.RabbitMQ;
 using JwtAuthenticationManager.Models;
-using RabbitMQ.Client;
-using Newtonsoft.Json;
 
 namespace UserManagement.Controllers
 {
@@ -17,51 +12,27 @@ namespace UserManagement.Controllers
 	{
 		private readonly UserContext _dbContext;
 		private readonly JwtTokenHandler _jwtTokenHandler;
-		private readonly RabbitMQConnectionFactory _connectionFactory;  // rabbitmq connection factory
-		//private readonly SendSessionClass _sendSession;
-
+		private readonly RabbitMQConnectionFactory _connectionFactory;
 		public AuthController(UserContext dbContext, JwtTokenHandler jwtTokenHandler, RabbitMQConnectionFactory connectionFactory)
 		{
 			_dbContext = dbContext;
 			_jwtTokenHandler = jwtTokenHandler;
 			_connectionFactory = connectionFactory;
-			//	_sendSession = sendSession;
 		}
 
 		[HttpPost]
 		[Route("register")]
-		public async Task<ActionResult<User>> Register(User request)
+		public async Task<ActionResult<User>> Register(UserContext _dbContext, User request)
 		{
-			var (hash, salt) = PasswordHasher.HashPassword(request.Password);
+			UserRegisterController userRegisterController = new UserRegisterController();
 
-			var user = new User
-			{
-				UserName = request.UserName,
-				Role = "Client",
-				Email = request.Email,
-				companyId = request.companyId,
-				Password = hash,
-				PasswordSalt = salt
-			};
-			Console.WriteLine(user.PasswordSalt);
-			try
-			{
-                Console.WriteLine("A0");
-                _dbContext.Users.Add(user);
-				Console.WriteLine("A1");
-				await _dbContext.SaveChangesAsync();
-                Console.WriteLine("A2");
-                // log in after sign up
-                //HttpContext.Session.SetString("UserName", user.FullName);
-                // Send session info
-                //_sendSession.SendSession(user.FullName);
-                return Ok(user);
-			}
-			catch (DbUpdateException e)
-			{
-				return Ok(new { message = e.Message });
-			}
+			var user = new User();
+			user = await userRegisterController.UserRegister(_dbContext, request);
 
+			if (user != null)
+				return Ok(user);
+
+			return Ok(new { message = "Username or Email is not available." });
 		}
 
 		// Login
@@ -71,11 +42,15 @@ namespace UserManagement.Controllers
 		{
 			var authenticationResponse = await _jwtTokenHandler.GenerateJwtToken(authenticationRequest);
 			if (authenticationResponse == null)
-				return Unauthorized(new { message = "Invalid Username or Password"});
+				return Unauthorized(new { message = "Invalid Username or Password" });
 
 			Response.Headers.Add("Authorization", $"Bearer {authenticationResponse}");
 
-			Console.WriteLine(authenticationResponse);
+			var companyName = _jwtTokenHandler.GetCompanyName();
+
+			SendCompanyNameClass sendCompanyNameClass = new SendCompanyNameClass();
+			// sendCompanyNameClass.SendCompanyName(_connectionFactory, companyName, authenticationRequest.UserName);
+
 			return authenticationResponse;
 		}
 
@@ -84,9 +59,6 @@ namespace UserManagement.Controllers
 		[Route("logout")]
 		public IActionResult Logout()
 		{
-			//HttpContext.Session.Remove("UserName");
-			// Send session info
-			//_sendSession.SendSession("No logged in user found");
 			return Ok(new { message = "Logout successful" });
 		}
 
@@ -97,17 +69,7 @@ namespace UserManagement.Controllers
 		// [Authorize(Roles = "Admin")]
 		public IActionResult CheckUser()
 		{
-			return Ok(new {message = "ok"});
-			// var userName = HttpContext.Session.GetString("UserName");
-
-			// if (!string.IsNullOrEmpty(userName))
-			// {
-			// 	return Ok("Current user " + userName);
-			// }
-			// else
-			// {
-			// 	return Unauthorized("No Logged in user");
-			// }
+			return Ok(new { message = "ok" });
 		}
 	}
 

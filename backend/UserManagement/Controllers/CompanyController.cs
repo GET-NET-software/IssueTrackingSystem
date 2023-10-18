@@ -1,14 +1,4 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-using Microsoft.AspNetCore.Http;
-using UserManagement.DTOs;
-using NuGet.Protocol.Plugins;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using UserManagement.Models;
-using JwtAuthenticationManager.Models;
-
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace UserManagement.Controllers
 {
@@ -17,12 +7,12 @@ namespace UserManagement.Controllers
 	public class CompanyController : ControllerBase
     {
         private readonly UserContext _dbContext;
-        private readonly GetCompanyNameList _getCompanyNameList;
+        private readonly GetList _getList;
 
         public CompanyController(UserContext dbContext)
         {
             _dbContext = dbContext;
-            _getCompanyNameList = new GetCompanyNameList(_dbContext);
+            _getList = new GetList(_dbContext);
         }
 
         // return company list
@@ -30,7 +20,7 @@ namespace UserManagement.Controllers
         [Route("getCompanies")]
         public IActionResult GetCompany()
         {
-            var companies = _getCompanyNameList.GetCompanyNames();
+            var companies = _getList.GetCompanyNames();
             return Ok(companies);
         }
 	}
