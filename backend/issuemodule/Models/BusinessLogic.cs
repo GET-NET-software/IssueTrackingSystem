@@ -5,28 +5,16 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Http;
  using System.Web;
-using issuemodule.Controllers;
-using issuemodule.RabbitMQ;
 
 
 namespace issuemodule.Models
 {
     public class BusinessLogic
     {
-       
-public List<String> ListUserNames()
-{
-    using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
-    {
-        var usernames = (from c in context.Cards
-                         select c.UserName).ToList();
-
-
-        return usernames;
-
         
-    }
-}
+        
+
+
 public virtual IEnumerable<CardDTO> GetAllCards()
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
@@ -41,19 +29,51 @@ public virtual IEnumerable<CardDTO> GetAllCards()
                            Description = c.Description,
                            Category = c.Category,
                            StatePriority = c.StatePriority,
-                           UserName= c.UserName,
                            StateName = state != null ? state.Name : string.Empty
                        };
-    
-
 
         return cardDTOs.ToList();
     }
 }
 
 
-     
-   public virtual void AddCard(Card card,HttpContext httpContext)
+  
+//   public virtual IEnumerable<string> GetAllCardNamesByPriority()
+// {
+//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+//     {
+//        var cardNames = from c in context.Cards
+//                         join s in context.States on c.StatePriority equals s.Priority
+//                         select s.Name ?? string.Empty; // Handle null values by using a default value
+//         return cardNames.ToList();
+//     }
+// }
+//         public virtual IEnumerable<Card> GetAllCards()
+// {
+//     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
+//     {
+//         var cards = from c in context.Cards
+//                     join s in context.States on c.StatePriority equals s.Priority into stateGroup
+//                     from state in stateGroup.DefaultIfEmpty()
+//                     select new Card
+//                     {
+//                         Id = c.Id,
+//                         Title = c.Title,
+//                         Description = c.Description,
+//                         Category = c.Category,
+//                         StatePriority = c.StatePriority,
+//                         StateName = state != null ? state.Name : string.Empty
+//                     };
+
+//         return cards.ToList();
+//     }
+// }
+
+            
+        
+
+       
+   public virtual void AddCard(Card card)
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
     {
@@ -70,15 +90,28 @@ public virtual IEnumerable<CardDTO> GetAllCards()
         }
         
         // Upload the file as binary into the database
-       
+        //if (card.File != null && card.File.Length > 0)
+        //{
+        //    byte[] fileBytes;
+        //    using (var memoryStream = new MemoryStream())
+        //    {
+        //        card.File.CopyTo(memoryStream);
+        //        fileBytes = memoryStream.ToArray();
+        //    }
+        //    card.FileData = fileBytes;
+        //    card.File = null; // Set the File property to null as we no longer need it
+        //}
 
-         card.UserName=GetUserNameFromToken(httpContext);
         context.Add(card);
         context.SaveChanges();
     }
 }
 
- 
+
+
+
+
+     
         public virtual Card GetCard(int id)
 {
     using (var context = new DashboardContext(new DbContextOptions<DashboardContext>()))
@@ -152,7 +185,6 @@ var tokenString = httpContext.Request.Headers["Authorization"].ToString().Replac
         card.Title = uCard.Title;
         card.Description = uCard.Description;
          card.Category = uCard.Category;
-         card.File= uCard.File;
         card.StatePriority = uCard.StatePriority; // Update the statePriority property
         card.assignee = uCard.assignee;
         context.SaveChanges();

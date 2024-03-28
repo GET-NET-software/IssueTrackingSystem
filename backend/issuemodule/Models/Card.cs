@@ -14,12 +14,8 @@ namespace issuemodule.Models
         public string? Category { get; set; }
         public string? assignee  { get; set; }
         public string? productID  { get; set; }
-        [NotMapped]
-        [Display(Name = "File")]
-          
-        public  byte[] File { get; set; }
-    
-         public string? FilePath { get; set; } 
+        
+       
         public int StatePriority { get; set; }
         public string UserName { get; set; }
 

@@ -2,27 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using issuemodule.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using issuemodule.RabbitMQ;
-using RabbitMQ.Client.Events;
-using System.Text;
-using RabbitMQ.Client;
 
 namespace issuemodule.Controllers
 {
 	//[Route("api/[controller]")]
 	// Add ApiController attribute for best practices
 	[Route("api/[controller]")]
-
-	public class DashboardController : ControllerBase
+	public class DashboardController : ControllerBase // Inherit from ControllerBase instead of Controller
 	{
 		private BusinessLogic businessLogic;
-		private readonly RabbitMQConnectionFactory _connectionFactory;
-		public DashboardController(RabbitMQConnectionFactory connectionFactory)
+		public DashboardController()
 		{
 			// Create a new instance of the BusinessLogic object
 			businessLogic = new BusinessLogic();
-			_connectionFactory = connectionFactory;
 		}
+
+
 
 		//   GET: api/Dashboard
 		[HttpGet]
@@ -30,14 +25,13 @@ namespace issuemodule.Controllers
 		[Authorize(Roles = "Admin")]
 		public IActionResult GetAll()
 		{
-			var userName = businessLogic.ListUserNames();
-			SendUserNameClass sendUserNameClass = new SendUserNameClass();
-			sendUserNameClass.SendUserName(_connectionFactory, userName);
-			// senduser Senduser= new senduser();
 			var cards = businessLogic.GetAllCards();
 			return Ok(cards);
 
 		}
+		
+
+
 
 		// GET: api/Dashboard/5
 		[HttpGet("{id}")]
@@ -51,26 +45,21 @@ namespace issuemodule.Controllers
 		}
 		//retrieve cards by user
 		[HttpGet]
-		[Route("getallcardsforuser")]
-		[Authorize]
-		public async Task<IActionResult> GetAllCardsForUserAsync()
-		{
-			GetCompanyNameClass getCompanyNameClass = new GetCompanyNameClass();
-			var companyName = await getCompanyNameClass.GetCompanyName(_connectionFactory);
-			Console.WriteLine("****************" + companyName);
-			// return Ok(companyName);
+[Route("getallcardsforuser")]
+[Authorize]
+public IActionResult GetAllCardsForUser()
+{
+    // Get the current user's identifier from the JWT token
+   // var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-			// Get the current user's identifier from the JWT token
-			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    // Use the user ID to retrieve all cards associated with that user
+    var cards = businessLogic.GetAllForUser(HttpContext); // Call the GetAllForUser method
 
-			// // Use the user ID to retrieve all cards associated with that user
-			var cards = businessLogic.GetAllForUser(HttpContext); // Call the GetAllForUser method
+    if (cards == null)
+        return NotFound();
 
-			if (cards == null)
-				return NotFound();
-
-			return Ok(cards);
-		}
+    return Ok(cards);
+}
 
 		// POST: api/Dashboard
 		[HttpPost]
@@ -79,7 +68,7 @@ namespace issuemodule.Controllers
 		public IActionResult Post([FromBody] Card card)
 		{
 			businessLogic = new BusinessLogic();
-			businessLogic.AddCard(card,HttpContext);
+			businessLogic.AddCard(card);
 			return CreatedAtAction(nameof(Get), new { id = card.Id }, card);
 		}
 

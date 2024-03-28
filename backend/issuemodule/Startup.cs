@@ -6,7 +6,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using JwtAuthenticationManager;
 using Use;
-using issuemodule.RabbitMQ;
 
 namespace issuemodule
 {
@@ -30,10 +29,9 @@ namespace issuemodule
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
             });
-			services.AddSingleton<RabbitMQConnectionFactory>();
-		}
+        }
 
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {

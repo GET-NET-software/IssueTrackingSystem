@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\LicenseManagementService\\LicenseManagementService.csproj": {}
+    "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\LicenseManagementService\\LicenseManagementService.csproj": {}
   },
   "projects": {
-    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
+    "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
+        "projectUniqueName": "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
         "projectName": "JwtAuthenticationManager",
-        "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
+        "projectPath": "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\obj\\",
+        "outputPath": "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\JwtAuthenticationManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -81,14 +81,14 @@
         }
       }
     },
-    "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\LicenseManagementService\\LicenseManagementService.csproj": {
+    "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\LicenseManagementService\\LicenseManagementService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\LicenseManagementService\\LicenseManagementService.csproj",
+        "projectUniqueName": "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\LicenseManagementService\\LicenseManagementService.csproj",
         "projectName": "LicenseManagementService",
-        "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\LicenseManagementService\\LicenseManagementService.csproj",
+        "projectPath": "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\LicenseManagementService\\LicenseManagementService.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\LicenseManagementService\\obj\\",
+        "outputPath": "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\LicenseManagementService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -105,8 +105,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
-                "projectPath": "A:\\Intern\\GET-NET\\IssueTrackingSystem\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj"
+              "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj": {
+                "projectPath": "C:\\Users\\Hp\\Desktop\\backend (4)\\backend\\JwtAuthenticationManager\\JwtAuthenticationManager.csproj"
               }
             }
           }
